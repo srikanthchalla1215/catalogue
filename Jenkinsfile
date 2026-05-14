@@ -4,6 +4,10 @@ pipeline{
             label 'ROBOSHOP'
         }
     }
+     
+     environment{
+        appVersion = ''
+     }
 
     options {
         disableConcurrentBuilds()
