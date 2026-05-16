@@ -27,7 +27,7 @@ let db;
 let collection;
 let mongoConnected = false;
 
-let app = express();
+const app = express();
 
 app.use(expLogger);
 
