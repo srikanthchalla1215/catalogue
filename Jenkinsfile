@@ -13,8 +13,8 @@ pipeline{
         disableConcurrentBuilds()
     }
 
-     tools {
-        SonarQubeScanner 'sonar-8'
+    tools {
+        SonarQubeScanner: 'sonar-8'
     }
 
     stages{
