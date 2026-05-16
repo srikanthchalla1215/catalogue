@@ -13,6 +13,10 @@ pipeline{
         disableConcurrentBuilds()
     }
 
+     tools {
+        SonarQubeScanner 'sonar-8'
+    }
+
     stages{
         stage('Read version'){
             steps{
@@ -37,6 +41,18 @@ pipeline{
                     """
                 }
             }
+        }
+
+        stage('SonarQube Analysis'){
+            steps{
+                script{
+                    withSonarQubeEnv('sonar-server') { // analysing and uploading to server
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+
+                }
+            }
+
         }
     }
 }
